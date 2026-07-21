@@ -4,13 +4,118 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The 1000 Square Experiment</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#cccccc;
+    font-size:20px;
+    margin-bottom:35px;
+}
+
+.progress-box{
+    width:100%;
+    max-width:700px;
+    margin:0 auto 15px;
+    background:#2a2a2a;
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:24px;
+    background:#39d353;
+}
+
+.progress-text{
+    margin-bottom:35px;
+    font-size:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(40,16px);
+    gap:4px;
+    justify-content:center;
+    margin:40px auto;
+}
+
+.square{
+    width:16px;
+    height:16px;
+    background:#3b3b3b;
+    border-radius:2px;
+}
+
+.button{
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 34px;
+    background:#39d353;
+    color:#111;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:10px;
+    font-size:20px;
+}
+
+.button:hover{
+    opacity:.9;
+}
+</style>
+
 </head>
 
 <body>
 
 <h1>The 1000 Square Experiment</h1>
 
-<p>Every dollar claims one permanent square.</p>
+<p class="subtitle">
+Every dollar permanently claims one of only 1,000 squares.
+</p>
+
+<div class="progress-box">
+    <div class="progress-fill"></div>
+</div>
+
+<div class="progress-text">
+0 / 1000 Squares Claimed
+</div>
+
+<div class="grid" id="grid"></div>
+
+<a href="#" class="button">
+Claim Your Squares
+</a>
+
+<script>
+const grid=document.getElementById("grid");
+
+for(let i=0;i<1000;i++){
+    const square=document.createElement("div");
+    square.className="square";
+    grid.appendChild(square);
+}
+</script>
 
 </body>
 </html>
