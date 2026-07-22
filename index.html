@@ -144,27 +144,6 @@ display:block;
 margin-bottom:8px;
 }
 
-#supporters{
-max-width:760px;
-margin:70px auto 0;
-text-align:left;
-}
-
-#supporters h2{
-margin-bottom:20px;
-font-size:28px;
-}
-
-.supporter{
-padding:12px 0;
-border-bottom:1px solid #2d2d2d;
-transition:.2s;
-}
-
-.supporter:hover{
-padding-left:8px;
-}
-
 footer{
 margin-top:70px;
 color:#777;
@@ -216,17 +195,9 @@ Once every square has an owner, the experiment is complete forever.
 
 <div class="grid" id="grid"></div>
 
-<a href="#" class="button">
+<a href="https://buy.stripe.com/14A9ASgXh9Nn7fP7qhdMI00" class="button" target="_blank">
 Claim Your Place
 </a>
-
-<div id="supporters">
-
-<h2>Supporters</h2>
-
-<div id="supporterList"></div>
-
-</div>
 
 <footer>
 
@@ -242,7 +213,6 @@ const donors=[];
 
 const grid=document.getElementById("grid");
 const tooltip=document.getElementById("tooltip");
-const supporterList=document.getElementById("supporterList");
 
 let claimed=0;
 let donorIndex=0;
@@ -302,11 +272,6 @@ claimed++;
 
 }
 
-supporterList.innerHTML+=`<div class="supporter">
-<strong>${donor.initials}</strong> — ${donor.name}
-<span style="float:right;color:#8de69e;">${donor.amount} Squares</span>
-</div>`;
-
 donorIndex++;
 
 });
@@ -327,13 +292,6 @@ document.getElementById("progressText").innerHTML=
 used+" / 1000 Squares Claimed";
 
 document.getElementById("fill").style.width=(used/1000*100)+"%";
-
-if(donors.length===0){
-
-supporterList.innerHTML=
-'<div style="color:#888;padding:15px 0;">No supporters yet. Be the first to claim your place.</div>';
-
-}
 
 </script>
 
